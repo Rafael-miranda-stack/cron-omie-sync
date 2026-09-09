@@ -12,4 +12,4 @@ jobs:
       - name: Acionar Render
         run: |
           curl -s -X POST "https://tpl-omie-sync-render-3pvj.onrender.com/sincronizar" \ 
-               -H "Authorization: Bearer ${{ secrets.OMIE_TOKEN }}"
+               -H "Authorization: Bearer ${{ secrets.TOKEN_SYNC }}"
