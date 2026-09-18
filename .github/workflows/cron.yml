@@ -2,7 +2,7 @@ name: Despertador TPL Omie
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '3,13,23,33,43,53 * * * *'
   workflow_dispatch:
 
 jobs:
@@ -11,5 +11,6 @@ jobs:
     steps:
       - name: Acionar Render
         run: |
-          curl -s -X POST "https://tpl-omie-sync-render-3pvj.onrender.com/sincronizar" \
-               -H "Authorization: Bearer ${{ secrets.OMIE_TOKEN }}"
+          curl --fail --silent --show-error -X POST "https://tpl-omie-sync-render-3pvj.onrender.com/sincronizar" \
+               -H "Authorization: Bearer ${{ secrets.OMIE_TOKEN }}" \
+               -H "X-Sync-Source: github-actions"
